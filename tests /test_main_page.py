@@ -6,12 +6,12 @@ class TestMainPage:
     def test_move_to_yandex_page(self, driver):
         main_page = MainPage(driver)
         driver.get("https://qa-scooter.praktikum-services.ru/")
-        main_page.click_logo_yandex(driver).click()
+        main_page.click_logo_yandex().click()
         assert len(driver.window_handles) == 2
 
     def test_move_to_samokat_page(self, driver):
         main_page = MainPage(driver)
         driver.get("https://qa-scooter.praktikum-services.ru/order")
-        main_page.click_logo_samokat(driver).click()
+        main_page.click_logo_samokat().click()
         assert driver.current_url == "https://qa-scooter.praktikum-services.ru/"
 

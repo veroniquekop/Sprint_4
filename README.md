@@ -7,3 +7,6 @@ test_order_page.py
 test_questions_page.py
 # описывает тесты основных вопросов 
 
+# ALLURE REPORT 11/23/2022
+http://192.168.1.10:62314/index.html
+
