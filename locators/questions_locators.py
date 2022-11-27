@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 class QuestionLocators:
-    cookies_locator = (By.XPATH, "//*[contains(@class, 'App_CookieButton__3cvqF')]")
+    cookies_locator = (By.XPATH, "//*[contains(@class, 'App_CookieButton')]")
 
     question_1_locator = (By.XPATH, ".//div[@id ='accordion__heading-0']")
     accordion_answer_1_locator = (By.XPATH, ".//div[@id='accordion__panel-0']")

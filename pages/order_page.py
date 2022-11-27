@@ -7,11 +7,14 @@ class OrderPage:
     def __init__(self, driver):
         self.driver = driver
     datepicker_locator = [By.XPATH, "//*[contains(@class, 'react-datepicker__month-container')]"]
-    status_of_order = [By.XPATH, "//*[contains(@class, 'Order_Modal__YZ-d3')]"]
-
+    status_of_order = [By.XPATH, "//*[contains(@class, 'Order_Modal')]"]
+    check_button_down = [By.XPATH, "//*[contains(@class, 'Button_Middle')]"]
     def button_order_up_locator(self):
         return self.driver.find_element(*OrderLocators.button_order_up_locator)
-    def button_order_down_locator(self):
+    def wait_button_order_down(self):
+        WebDriverWait(self.driver, 60).until(expected_conditions.element_to_be_clickable(self.check_button_down))
+
+    def button_order_down(self):
         return self.driver.find_element(*OrderLocators.button_order_down_locator)
     def button_cookie_locator(self):
         return self.driver.find_element(*OrderLocators.accept_cookies)
