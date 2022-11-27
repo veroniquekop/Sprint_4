@@ -1,16 +1,15 @@
 from locators.questions_locators import QuestionLocators
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 class QuestionPage:
     def __init__(self, driver):
         self.driver = driver
 
+    element = [By.XPATH, ".//div[@id ='accordion__heading-0']"]
     def accept_cookies(self):
         return self.driver.find_element(*QuestionLocators.cookies_locator)
 
-    def move_to_question1_from(self):
-        question1 = [By.XPATH, ".//div[@id ='accordion__heading-0']"]
-        return self.driver.execute_script("arguments[0].scrollIntoView();", question1)
     def get_question1(self):
         return self.driver.find_element(*QuestionLocators.question_1_locator)
     def get_answer1_from_accordion(self):
