@@ -9,23 +9,12 @@ class OrderPage:
     datepicker_locator = [By.XPATH, "//*[contains(@class, 'react-datepicker__month-container')]"]
     status_of_order = [By.XPATH, "//*[contains(@class, 'Order_Modal')]"]
     check_button_down = [By.XPATH, "//*[contains(@class, 'Button_Middle')]"]
-    field_station_locator = [By.XPATH, "//input[@placeholder='* Станция метро']"]
-    station1_locator = [By.XPATH, ".//*[@data-index='1']"]  # Станция 1
-    list_of_stations = [By.XPATH, "//*[contains(@class, 'select-search')]"]
-    input_name_locator = [By.XPATH, "//input[@placeholder='* Имя']"]
-    wait_when_samokat = [By.XPATH, "//input[@placeholder='* Когда привезти самокат']"]
-    def button_order_up_locator(self):
-        return self.driver.find_element(*OrderLocators.button_order_up_locator)
+
     def wait_button_order_down(self):
         WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(self.check_button_down))
-    def wait_select_station_locator(self):
-        WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(self.field_station_locator))
-    def wait_select_station_1(self):
-        WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(self.station1_locator))
-    def wait_name_locator(self):
-        WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(self.input_name_locator))
-    def wait_when_samokat(self):
-        WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(self.wait_when_samokat))
+    def button_order_up_locator(self):
+        return self.driver.find_element(*OrderLocators.button_order_up_locator)
+
     def button_order_down(self):
         return self.driver.find_element(*OrderLocators.button_order_down_locator)
     def button_cookie_locator(self):
@@ -53,7 +42,7 @@ class OrderPage:
     def set_date_locator(self):
         return self.driver.find_element(*OrderLocators.select_date_button_locator)
     def wait_for_load_datepicker_locator(self):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(self.datepicker_locator))
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(self.datepicker_locator))
     def select_datepicker(self):
         return self.driver.find_element(*OrderLocators.datepicker_locator)
     def set_current_date(self):
